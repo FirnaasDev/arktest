@@ -27,10 +27,18 @@ interface ThumbProps {
    */
   desc?: string;
 
+
+  /**
+   * Category String to enter?
+   */
+  category?: string;
+
   /**
    * Desc String to enter?
    */
   btnTxt: string;
+
+
 
 }
 
@@ -43,20 +51,23 @@ export const ThumbCard = ({
   imgContent,
   label,
   desc,
+  category,
   btnTxt,
   ...props
 }: ThumbProps) => {
   return (
-    <div className="card w-64 bg-base-100 drop-shadow-md shadow-xl">
+    <div className="card w-64 bg-base-100 drop-shadow-xl" >
         <figure className="px-5 pt-8">
-            <img src={imgContent} alt="tablet" className="rounded-xl" />
+            <img src={imgContent} alt="tablet" className="rounded-0" />
         </figure>
-        <div className="card-body">
+        <div className="card-body gap-0 p-4">
           <h2 className="card-title">{label}</h2>
+          <p className='text-sm font-light'>{desc}</p>
           <div className='flex items-center'>
-            <p className='text-xl'>{desc}</p>
+            <p className='text-md font-bold text-fuchsia-300'>{category}</p>
             <div className="card-actions">
                 <Button
+                  className='rounded-[50px] !bg-slate-600 text-white mx-2 p-2 px-6'
                   primary = {true}
                   backgroundColor={'#ddd'}
                   label={btnTxt}
